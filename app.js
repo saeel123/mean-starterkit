@@ -26,6 +26,12 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+//Passport MiddleWare
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
+
 //set Static Client Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
